@@ -1,156 +1,73 @@
-const pulls = [
-  {
-    title: 'feat: idempotent payment retries',
-    author: 'd.reyes',
-    state: 'Merged',
-    tone: 'text-emerald-600 bg-emerald-50',
-  },
-  {
-    title: 'perf: cut p95 authorisation to 80ms',
-    author: 'm.chow',
-    state: 'Merged',
-    tone: 'text-emerald-600 bg-emerald-50',
-  },
-  {
-    title: 'fix: webhook retry backoff',
-    author: 't.herrera',
-    state: 'In review',
-    tone: 'text-amber-600 bg-amber-50',
-  },
-]
+import { Link } from 'react-router-dom'
 
-const pipeline = [
-  { label: 'Build', time: '1m 12s', done: true },
-  { label: 'Tests · 1,284 passing', time: '2m 48s', done: true },
-  { label: 'Security scan', time: '46s', done: true },
-  { label: 'Deploy → production', time: 'in progress', done: false },
-]
+const volume = [28, 36, 30, 45, 38, 54, 47, 62, 56, 72, 63, 80, 70, 88, 76, 96, 83, 100, 89, 108, 95, 119, 103, 128]
 
 export default function BuildMock() {
   return (
     <div className="relative mx-auto w-full max-w-xl">
-      <div className="rounded-2xl border border-slate-200/80 bg-white p-2 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/5">
-        <div className="overflow-hidden rounded-xl bg-slate-50">
-          {/* window bar */}
-          <div className="flex items-center gap-3 border-b border-slate-200 bg-white px-4 py-2.5">
-            <span className="flex gap-1.5" aria-hidden="true">
-              <span className="size-2.5 rounded-full bg-slate-200" />
-              <span className="size-2.5 rounded-full bg-slate-200" />
-              <span className="size-2.5 rounded-full bg-slate-200" />
-            </span>
-            <p className="truncate font-mono text-xs text-slate-500">
-              ledgerline / api
-            </p>
-            <span className="ml-auto rounded-md bg-slate-100 px-2 py-1 font-mono text-[11px] text-slate-500">
-              main
-            </span>
+      <div className="rounded-xl border border-slate-200 bg-white shadow-xl shadow-slate-950/10">
+        <div className="flex items-center gap-3 border-b border-slate-200 px-5 py-4">
+          <span className="grid size-8 place-items-center rounded-md bg-[#08376B] text-xs font-bold text-white" aria-hidden="true">
+            L
+          </span>
+          <div>
+            <p className="text-sm font-semibold text-slate-900">Ledgerline</p>
+            <p className="text-xs text-slate-500">Payments platform</p>
           </div>
-
-          <div className="space-y-4 p-4 sm:p-5">
-            {/* pull requests */}
-            <div className="rounded-lg border border-slate-200/80 bg-white p-4">
-              <div className="flex items-center justify-between">
-                <p className="text-xs font-semibold text-slate-900">
-                  Pull requests
-                </p>
-                <span className="text-[11px] text-slate-400">3 open</span>
-              </div>
-              <ul className="mt-3 space-y-2.5">
-                {pulls.map((pull) => (
-                  <li
-                    key={pull.title}
-                    className="flex items-center gap-3 rounded-md border border-slate-100 px-3 py-2"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      className="size-4 shrink-0 text-emerald-500"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                    >
-                      <circle cx="6" cy="6" r="3" />
-                      <circle cx="6" cy="18" r="3" />
-                      <path d="M6 9v6M21 6v3a4 4 0 01-4 4H9" />
-                    </svg>
-                    <span className="min-w-0 flex-1 truncate font-mono text-[11px] text-slate-600">
-                      {pull.title}
-                    </span>
-                    <span className="hidden shrink-0 text-[11px] text-slate-400 sm:inline">
-                      @{pull.author}
-                    </span>
-                    <span
-                      className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-semibold ${pull.tone}`}
-                    >
-                      {pull.state}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* pipeline */}
-            <div className="rounded-lg border border-slate-200/80 bg-white p-4">
-              <div className="flex items-center justify-between">
-                <p className="text-xs font-semibold text-slate-900">
-                  Pipeline · PR #482
-                </p>
-                <span className="flex items-center gap-1.5 text-[11px] font-medium text-emerald-600">
-                  <span className="size-1.5 rounded-full bg-emerald-500" />
-                  Passing
-                </span>
-              </div>
-              <ul className="mt-3 space-y-2">
-                {pipeline.map((step) => (
-                  <li key={step.label} className="flex items-center gap-3">
-                    <span
-                      className={`grid size-4 shrink-0 place-items-center rounded-full text-[9px] font-bold text-white ${
-                        step.done ? 'bg-emerald-500' : 'bg-indigo-500'
-                      }`}
-                      aria-hidden="true"
-                    >
-                      {step.done ? '✓' : '•'}
-                    </span>
-                    <span className="flex-1 truncate text-[11px] text-slate-600">
-                      {step.label}
-                    </span>
-                    <span
-                      className={`shrink-0 font-mono text-[11px] ${
-                        step.done ? 'text-slate-400' : 'text-indigo-600'
-                      }`}
-                    >
-                      {step.time}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              {!pipeline[3].done && (
-                <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-slate-100">
-                  <div className="h-full w-[68%] animate-pulse rounded-full bg-gradient-to-r from-indigo-500 to-violet-500" />
-                </div>
-              )}
-            </div>
-
-            <p className="flex items-center gap-2 text-[11px] text-slate-400">
-              <span className="rounded bg-slate-900 px-1.5 py-0.5 font-mono text-[10px] text-slate-300">
-                v2.14.0
-              </span>
-              Deployed to production 4 minutes ago
-            </p>
-          </div>
+          <span className="ml-auto rounded-full border border-slate-200 px-2.5 py-1 text-[11px] font-medium text-slate-500">
+            Case study
+          </span>
         </div>
-      </div>
 
-      {/* floating velocity card */}
-      <div className="absolute -top-6 right-2 hidden rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 shadow-xl shadow-slate-900/10 lg:block">
-        <p className="text-[11px] font-semibold text-slate-900">
-          Sprint 24 · velocity
-        </p>
-        <p className="mt-0.5 text-[11px] leading-snug text-slate-500">
-          34 / 36 points shipped · demo Friday
-        </p>
+        <div className="p-5 sm:p-6">
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <p className="text-xs font-medium text-slate-500">Platform at a glance</p>
+              <p className="mt-1 text-lg font-semibold tracking-tight text-slate-900">Built for payment traffic at scale</p>
+            </div>
+            <Link to="/projects/ledgerline-payments-platform" className="text-xs font-semibold text-[#08376B] transition hover:text-[#04B1C4]">
+              Read the case study <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+
+          <div className="mt-6 grid grid-cols-3 divide-x divide-slate-200 border-y border-slate-200 py-4">
+            <div className="pr-3">
+              <p className="text-lg font-semibold tracking-tight text-slate-900 sm:text-xl">12M</p>
+              <p className="mt-1 text-[11px] leading-4 text-slate-500">transactions / day</p>
+            </div>
+            <div className="px-3">
+              <p className="text-lg font-semibold tracking-tight text-slate-900 sm:text-xl">80<span className="text-sm">ms</span></p>
+              <p className="mt-1 text-[11px] leading-4 text-slate-500">p95 authorisation</p>
+            </div>
+            <div className="pl-3">
+              <p className="text-lg font-semibold tracking-tight text-slate-900 sm:text-xl">99.99%</p>
+              <p className="mt-1 text-[11px] leading-4 text-slate-500">platform uptime</p>
+            </div>
+          </div>
+
+          <div className="mt-5 rounded-lg bg-slate-50 p-4">
+            <div className="flex items-center justify-between gap-3">
+              <p className="text-xs font-semibold text-slate-700">Daily transaction volume</p>
+              <p className="text-[11px] text-slate-500">Illustrative profile</p>
+            </div>
+            <div className="mt-4 flex h-28 items-end gap-1" role="img" aria-label="Illustrative bar chart showing transaction volume rising through the day">
+              {volume.map((height, index) => (
+                <span
+                  key={`${height}-${index}`}
+                  className="min-w-0 flex-1 rounded-t-[2px] bg-[#04B1C4]"
+                  style={{ height: `${height / 1.35}%`, opacity: 0.32 + (index / volume.length) * 0.6 }}
+                />
+              ))}
+            </div>
+            <div className="mt-2 flex justify-between font-mono text-[10px] text-slate-400">
+              <span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span>
+            </div>
+          </div>
+
+          <p className="mt-4 text-[11px] leading-5 text-slate-500">
+            Outcomes from a production platform rebuild for Ledgerline.
+          </p>
+        </div>
       </div>
     </div>
   )

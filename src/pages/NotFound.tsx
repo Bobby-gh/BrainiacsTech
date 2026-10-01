@@ -2,14 +2,18 @@ import { Link } from 'react-router-dom'
 
 export default function NotFound() {
   return (
-    <section className="relative overflow-hidden">
-      <div className="grid-bg pointer-events-none absolute inset-0" aria-hidden="true" />
-      <div className="container-x relative py-28 text-center sm:py-36">
-        <p className="font-mono text-sm font-semibold text-indigo-600">404</p>
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+    <section className="image-banner relative min-h-[38rem] overflow-hidden text-white">
+      <img
+        src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2200&q=85"
+        alt="Close-up of a circuit board"
+        fetchPriority="high"
+      />
+      <div className="container-x flex min-h-[38rem] flex-col items-center justify-center py-28 text-center sm:py-36">
+        <p className="font-mono text-sm font-semibold text-[#04B1C4]">404 / ROUTE NOT FOUND</p>
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
           This page is not in the repo
         </h1>
-        <p className="mx-auto mt-4 max-w-md text-base text-slate-600">
+        <p className="mx-auto mt-4 max-w-md text-base text-blue-100/75">
           The link you followed either moved or never existed. Everything worth
           reading is one click away.
         </p>

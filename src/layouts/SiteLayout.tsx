@@ -5,7 +5,7 @@ import ScrollToTop from '../components/ScrollToTop'
 
 export default function SiteLayout() {
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-600 antialiased">
+    <div className="design-root min-h-screen font-sans antialiased">
       <ScrollToTop />
       <Navbar />
       <main>

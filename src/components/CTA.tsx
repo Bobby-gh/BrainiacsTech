@@ -11,38 +11,30 @@ export default function CTA() {
   }
 
   return (
-    <section className="container-x pb-24 pt-4">
-      <div className="relative overflow-hidden rounded-3xl bg-slate-950 px-6 py-16 shadow-2xl shadow-slate-900/20 sm:px-12 sm:py-20">
-        <div
-          className="pointer-events-none absolute -top-24 left-1/2 h-72 w-[36rem] -translate-x-1/2 rounded-full bg-indigo-500/30 blur-3xl"
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute -bottom-24 -right-16 h-64 w-64 rounded-full bg-fuchsia-500/25 blur-3xl"
-          aria-hidden="true"
-        />
-
-        <div className="relative mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+    <section className="container-x pb-20 pt-4">
+      <div className="grid overflow-hidden rounded-xl bg-[#08376B] text-white lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="px-6 py-10 sm:px-10 sm:py-12 lg:px-12 lg:py-14">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#04B1C4]">
+            Let’s talk
+          </p>
+          <h2 className="mt-4 max-w-lg text-3xl font-semibold leading-tight tracking-[-0.035em] sm:text-4xl">
             Have a project worth building?
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-slate-400">
-            Tell us what you are planning. You will get a real engineer on the
-            call, a scoped plan within a week, and no hard sell.
+          <p className="mt-4 max-w-lg text-sm leading-6 text-white/75 sm:text-base sm:leading-7">
+            Tell us what you are planning. You will talk with a real engineer, get a clear next step, and never sit through a hard sell.
           </p>
 
           {submitted ? (
             <p
-              className="mx-auto mt-8 max-w-md rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-5 py-4 text-sm font-medium text-emerald-300"
+              className="mt-7 max-w-md border-l-2 border-[#04B1C4] bg-white/10 px-4 py-3 text-sm leading-6 text-white"
               role="status"
             >
-              Thanks — we will reply from a real inbox within one business
-              day, using {email}.
+              Thanks — we will reply to {email} within one business day.
             </p>
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="mx-auto mt-8 flex w-full max-w-md flex-col gap-3 sm:flex-row"
+              className="mt-7 flex w-full max-w-lg flex-col gap-2.5 sm:flex-row"
             >
               <label htmlFor="cta-email" className="sr-only">
                 Work email
@@ -53,23 +45,46 @@ export default function CTA() {
                 required
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
-                placeholder="you@company.com"
-                className="w-full flex-1 rounded-lg border border-white/15 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-400/40"
+                placeholder="Your work email"
+                className="min-w-0 flex-1 rounded-md border border-white/25 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-500 focus:border-[#04B1C4] focus:outline-none focus:ring-2 focus:ring-[#04B1C4]/40"
               />
               <button
                 type="submit"
-                className="rounded-lg bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-200"
+                className="inline-flex items-center justify-center gap-2 rounded-md bg-[#04B1C4] px-5 py-3 text-sm font-semibold text-[#08376B] transition hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                Get started
+                Get in touch <span aria-hidden="true">↗</span>
               </button>
             </form>
           )}
 
-          <p className="mt-4 text-xs text-slate-500">
-            Reply within one business day · NDA on request · Fixed-price or
-            dedicated team
+          <p className="mt-4 text-xs text-white/60">
+            One business day response · NDA on request
           </p>
         </div>
+
+        <figure className="grid min-h-[17rem] grid-cols-5 grid-rows-2 gap-2 p-2 pt-0 sm:min-h-[24rem] sm:gap-3 sm:p-3 lg:h-[24rem] lg:min-h-0 lg:self-center lg:pl-0">
+          <img
+            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1100&q=85"
+            alt="A product team collaborating around a table"
+            loading="lazy"
+            className="col-span-3 row-span-2 size-full min-h-0 object-cover"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=85"
+            alt="Developer workstation with code on screen"
+            loading="lazy"
+            className="col-span-2 size-full min-h-0 object-cover"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=85"
+            alt="Colleagues working together at laptops"
+            loading="lazy"
+            className="col-span-2 size-full min-h-0 object-cover"
+          />
+          <figcaption className="sr-only">
+            Product teams collaborate on thoughtful software, from planning through delivery.
+          </figcaption>
+        </figure>
       </div>
     </section>
   )

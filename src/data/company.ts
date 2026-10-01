@@ -2,7 +2,6 @@ export type TeamMember = {
   name: string
   role: string
   initials: string
-  gradient: string
   bio: string
 }
 
@@ -11,42 +10,36 @@ export const team: TeamMember[] = [
     name: 'Amara Okafor',
     role: 'Founder & CEO',
     initials: 'AO',
-    gradient: 'from-indigo-500 to-violet-600',
-    bio: 'Ex-platform lead. Started Brainiac in 2014 to build software the way engineers actually want to.',
+    bio: 'Ex-platform lead. Started Brainiacs Tech in 2014 to build software the way engineers actually want to.',
   },
   {
     name: 'Daniel Reyes',
     role: 'Head of Engineering',
     initials: 'DR',
-    gradient: 'from-violet-500 to-fuchsia-600',
     bio: 'Shipped payments and logistics systems at scale. Owns our architecture reviews and on-call culture.',
   },
   {
     name: 'Mei Lin Chow',
     role: 'Design Director',
     initials: 'MC',
-    gradient: 'from-fuchsia-500 to-pink-600',
     bio: 'Turns fuzzy briefs into shipped interfaces. Previously led design for two Series C products.',
   },
   {
     name: 'Tomás Herrera',
     role: 'Cloud & DevOps Lead',
     initials: 'TH',
-    gradient: 'from-sky-500 to-indigo-600',
     bio: 'Terraform, Kubernetes, and very strong opinions about immutable infrastructure.',
   },
   {
     name: 'Priya Raman',
     role: 'AI Practice Lead',
     initials: 'PR',
-    gradient: 'from-amber-500 to-orange-600',
     bio: 'Builds retrieval and evaluation pipelines that survive contact with real production data.',
   },
   {
     name: 'Jonas Weber',
     role: 'Delivery Director',
     initials: 'JW',
-    gradient: 'from-emerald-500 to-teal-600',
     bio: 'Keeps scope honest and dates real. Your single point of contact from kickoff to handover.',
   },
 ]
@@ -77,7 +70,7 @@ export const values = [
 export const milestones = [
   {
     year: '2014',
-    title: 'Founded in New York',
+    title: 'Founded in Accra, Ghana',
     body: 'Four engineers, one contract, and a rule: no body shops, only product teams.',
   },
   {
@@ -88,7 +81,7 @@ export const milestones = [
   {
     year: '2020',
     title: 'Remote-first, globally',
-    body: 'Went distributed for good and opened delivery hubs in London and Singapore.',
+    body: 'Went distributed for good, keeping our home in Accra, Tesano while opening a UK presence in London.',
   },
   {
     year: '2023',

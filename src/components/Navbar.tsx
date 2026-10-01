@@ -5,64 +5,47 @@ import Logo from './Logo'
 const links = [
   { label: 'Home', to: '/' },
   { label: 'Projects', to: '/projects' },
+  { label: 'Services', to: '/services' },
   { label: 'Companies', to: '/companies' },
   { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ]
 
-function linkClass(isActive: boolean, mobile = false) {
-  if (mobile) {
-    return `block rounded-lg px-3 py-2.5 text-sm font-medium transition ${
-      isActive
-        ? 'bg-indigo-50 text-indigo-700'
-        : 'text-slate-700 hover:bg-slate-50'
-    }`
-  }
-  return `text-sm font-medium transition ${
-    isActive ? 'text-indigo-600' : 'text-slate-600 hover:text-slate-900'
-  }`
-}
-
 export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/85 backdrop-blur-md">
-      <div className="container-x flex h-16 items-center justify-between gap-6">
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white text-[#08376B]">
+      <div className="container-x flex h-[4.5rem] items-center justify-between gap-5">
         <NavLink
           to="/"
-          className="shrink-0"
-          aria-label="Brainiac home"
+          className="shrink-0 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#04B1C4]"
+          aria-label="Brainiacs Tech home"
           onClick={() => setOpen(false)}
         >
           <Logo />
         </NavLink>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+        <nav className="hidden h-full items-center gap-7 lg:flex" aria-label="Primary">
           {links.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               end={link.to === '/'}
-              className={({ isActive }) => linkClass(isActive)}
+              className={({ isActive }) => `nav-link relative inline-flex h-full items-center text-[13px] font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[#04B1C4] ${isActive ? 'nav-link-active text-[#08376B]' : 'text-slate-600 hover:text-[#08376B]'}`}
             >
               {link.label}
             </NavLink>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <a
-            href="mailto:hello@brainiac.dev"
-            className="text-sm font-medium text-slate-600 transition hover:text-slate-900"
-          >
-            hello@brainiac.dev
-          </a>
+        <div className="hidden items-center lg:flex">
           <NavLink
             to="/contact"
-            className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700"
+            className="inline-flex items-center gap-2 rounded-md bg-[#04B1C4] px-4 py-2.5 text-sm font-semibold text-[#08376B] transition hover:bg-[#0399aa] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#08376B]"
           >
             Start a project
+            <span aria-hidden="true">↗</span>
           </NavLink>
         </div>
 
@@ -70,15 +53,16 @@ export default function Navbar() {
           type="button"
           onClick={() => setOpen((value) => !value)}
           aria-expanded={open}
-          aria-label="Toggle navigation menu"
-          className="grid size-10 place-items-center rounded-lg border border-slate-200 text-slate-700 transition hover:bg-slate-50 md:hidden"
+          aria-controls="mobile-navigation"
+          aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
+          className="grid size-10 place-items-center rounded-md border border-slate-200 text-[#08376B] transition hover:border-[#04B1C4] hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#04B1C4] lg:hidden"
         >
           <svg
             viewBox="0 0 24 24"
             className="size-5"
             fill="none"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="1.8"
             strokeLinecap="round"
             aria-hidden="true"
           >
@@ -99,18 +83,15 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="border-t border-slate-200 bg-white md:hidden">
-          <nav
-            className="container-x flex flex-col gap-1 py-4"
-            aria-label="Mobile"
-          >
+        <div id="mobile-navigation" className="nav-panel-enter border-t border-slate-200 bg-white lg:hidden">
+          <nav className="container-x flex flex-col gap-1 py-3" aria-label="Mobile">
             {links.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 end={link.to === '/'}
                 onClick={() => setOpen(false)}
-                className={({ isActive }) => linkClass(isActive, true)}
+                className={({ isActive }) => `rounded-md px-3 py-3 text-sm font-medium transition ${isActive ? 'bg-[#08376B] text-white' : 'text-slate-700 hover:bg-slate-100 hover:text-[#08376B]'}`}
               >
                 {link.label}
               </NavLink>
@@ -118,9 +99,9 @@ export default function Navbar() {
             <NavLink
               to="/contact"
               onClick={() => setOpen(false)}
-              className="mt-3 rounded-lg bg-slate-900 px-4 py-2.5 text-center text-sm font-semibold text-white transition hover:bg-slate-700"
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-[#04B1C4] px-4 py-3 text-sm font-semibold text-[#08376B] transition hover:bg-[#0399aa]"
             >
-              Start a project
+              Start a project <span aria-hidden="true">↗</span>
             </NavLink>
           </nav>
         </div>

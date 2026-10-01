@@ -9,6 +9,8 @@ const services = [
   'Cloud & DevOps',
   'AI & data',
   'Embedded team',
+  'Brainiacs Talents — technology recruitment',
+  'Brainiacs Space — coworking',
 ]
 
 const budgets = [
@@ -20,9 +22,8 @@ const budgets = [
 ]
 
 const offices = [
-  { city: 'New York', detail: '115 W 30th St, Floor 6' },
-  { city: 'London', detail: '22 Bishopsgate, Level 30' },
-  { city: 'Singapore', detail: '8 Marina View, #28-01' },
+  { city: 'Accra — Tesano', detail: 'Head office, Greater Accra, Ghana' },
+  { city: 'London', detail: 'United Kingdom' },
 ]
 
 const nextSteps = [
@@ -32,7 +33,7 @@ const nextSteps = [
 ]
 
 const inputClass =
-  'w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20'
+  'w-full rounded-md border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20'
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
@@ -77,12 +78,12 @@ export default function Contact() {
                 </h2>
                 <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-slate-600">
                   An engineer will reply within one business day. If it is
-                  urgent, call us on +1 (415) 555-0142.
+                  urgent, call us on +233 24 555 0142.
                 </p>
                 <button
                   type="button"
                   onClick={() => setSubmitted(false)}
-                  className="mt-6 text-sm font-semibold text-indigo-600 hover:underline"
+                  className="mt-6 text-sm font-semibold text-blue-800 hover:underline"
                 >
                   Send another message
                 </button>
@@ -235,7 +236,7 @@ export default function Contact() {
                 </p>
                 <a
                   href="mailto:hello@brainiac.dev"
-                  className="font-medium text-slate-900 hover:text-indigo-600"
+                  className="font-medium text-slate-900 hover:text-blue-800"
                 >
                   hello@brainiac.dev
                 </a>
@@ -246,7 +247,7 @@ export default function Contact() {
                 </p>
                 <a
                   href="mailto:support@brainiac.dev"
-                  className="font-medium text-slate-900 hover:text-indigo-600"
+                  className="font-medium text-slate-900 hover:text-blue-800"
                 >
                   support@brainiac.dev
                 </a>
@@ -256,10 +257,10 @@ export default function Contact() {
                   Phone
                 </p>
                 <a
-                  href="tel:+14155550142"
-                  className="font-medium text-slate-900 hover:text-indigo-600"
+                  href="tel:+233245550142"
+                  className="font-medium text-slate-900 hover:text-blue-800"
                 >
-                  +1 (415) 555-0142
+                  +233 24 555 0142
                 </a>
               </li>
             </ul>
@@ -273,7 +274,7 @@ export default function Contact() {
               {offices.map((office) => (
                 <li key={office.city} className="flex items-start gap-3">
                   <span
-                    className="mt-1.5 size-2 shrink-0 rounded-full bg-indigo-500"
+                    className="mt-1.5 size-2 shrink-0 rounded-full bg-blue-600"
                     aria-hidden="true"
                   />
                   <div>
@@ -290,14 +291,14 @@ export default function Contact() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-indigo-100 bg-indigo-50/60 p-6">
+          <div className="rounded-xl border border-blue-100 bg-blue-50/70 p-6">
             <h2 className="text-base font-semibold text-slate-900">
               What happens next
             </h2>
             <ol className="mt-4 space-y-3">
               {nextSteps.map((step, index) => (
                 <li key={step} className="flex gap-3 text-sm text-slate-600">
-                  <span className="grid size-5 shrink-0 place-items-center rounded-full bg-indigo-600 text-[10px] font-bold text-white">
+                  <span className="grid size-5 shrink-0 place-items-center rounded-full bg-[#08376B] text-[10px] font-bold text-white">
                     {index + 1}
                   </span>
                   {step}

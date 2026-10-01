@@ -7,11 +7,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="relative overflow-hidden bg-slate-950">
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.28),transparent_55%)]"
-        aria-hidden="true"
-      />
+    <section className="relative overflow-hidden bg-[#08376B]">
       <div className="container-x relative py-16 sm:py-20">
         <dl className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
           {stats.map((stat) => (

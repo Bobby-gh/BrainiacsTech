@@ -1,6 +1,7 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import CTA from '../components/CTA'
 import { getProject, projects } from '../data/projects'
+import { projectImages } from '../data/images'
 
 export default function ProjectDetail() {
   const { slug } = useParams()
@@ -26,36 +27,37 @@ export default function ProjectDetail() {
     <>
       <article>
         {/* header */}
-        <section className="relative overflow-hidden border-b border-slate-200/70 bg-slate-50/40">
-          <div
-            className="grid-bg pointer-events-none absolute inset-0"
-            aria-hidden="true"
+        <section className="image-banner relative min-h-[31rem] overflow-hidden border-b border-[#1b3b61] text-white">
+          <img
+            src={projectImages[project.slug]}
+            alt={`${project.client} project environment`}
+            fetchPriority="high"
           />
-          <div className="container-x relative py-14 sm:py-16">
+          <div className="container-x flex min-h-[31rem] flex-col justify-center py-14 sm:py-16">
             <Link
               to="/projects"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-500 transition hover:text-slate-900"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-100/65 transition hover:text-white"
             >
               <span aria-hidden="true">←</span> All projects
             </Link>
 
-            <p className="mt-8 text-sm font-semibold uppercase tracking-wider text-indigo-600">
+            <p className="mt-8 text-xs font-semibold uppercase tracking-[0.18em] text-blue-300">
               {project.category} · {project.year}
             </p>
-            <h1 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+            <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-white sm:text-6xl">
               {project.title}
             </h1>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
+            <p className="mt-5 max-w-2xl text-base leading-7 text-blue-100/75 sm:text-lg">
               {project.summary}
             </p>
 
-            <dl className="mt-10 grid gap-x-8 gap-y-6 border-t border-slate-200 pt-8 sm:grid-cols-2 lg:grid-cols-3">
+            <dl className="mt-10 grid gap-x-8 gap-y-6 border-t border-white/15 pt-8 sm:grid-cols-2 lg:grid-cols-3">
               {meta.map((item) => (
                 <div key={item.label}>
-                  <dt className="text-xs font-medium uppercase tracking-wider text-slate-400">
+                  <dt className="text-xs font-medium uppercase tracking-wider text-blue-100/50">
                     {item.label}
                   </dt>
-                  <dd className="mt-1 text-sm font-medium text-slate-900">
+                  <dd className="mt-1 text-sm font-medium text-white">
                     {item.value}
                   </dd>
                 </div>
@@ -66,9 +68,14 @@ export default function ProjectDetail() {
 
         {/* banner */}
         <section className="container-x pt-12">
-          <div
-            className={`flex h-56 items-center justify-center rounded-3xl bg-gradient-to-br sm:h-72 ${project.gradient}`}
-          >
+          <div className="image-card relative flex h-64 items-center justify-center overflow-hidden rounded-3xl bg-[#08376B] shadow-2xl shadow-blue-950/15 sm:h-96">
+            <img
+              src={projectImages[project.slug]}
+              alt={`${project.client} project banner`}
+              loading="lazy"
+              className="absolute inset-0 size-full object-cover opacity-75"
+            />
+            <div className="absolute inset-0 bg-[#08376B]/45" aria-hidden="true" />
             <span className="text-7xl font-bold tracking-tight text-white/90 sm:text-9xl">
               {project.monogram}
             </span>
@@ -97,12 +104,8 @@ export default function ProjectDetail() {
 
         {/* outcomes */}
         <section className="relative overflow-hidden bg-slate-950">
-          <div
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.28),transparent_55%)]"
-            aria-hidden="true"
-          />
           <div className="container-x relative py-14">
-            <h2 className="text-center text-sm font-semibold uppercase tracking-wider text-indigo-300">
+            <h2 className="text-center text-sm font-semibold uppercase tracking-wider text-blue-300">
               Outcomes
             </h2>
             <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4">
@@ -147,7 +150,7 @@ export default function ProjectDetail() {
           <div className="container-x py-12">
             <Link
               to={`/projects/${next.slug}`}
-              className="group flex flex-col items-start justify-between gap-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-indigo-200 hover:shadow-md sm:flex-row sm:items-center"
+              className="group flex flex-col items-start justify-between gap-6 rounded-xl border border-[#dce4ef] bg-white p-6 transition hover:border-blue-300 hover:shadow-lg hover:shadow-blue-950/5 sm:flex-row sm:items-center"
             >
               <div>
                 <p className="text-xs font-medium uppercase tracking-wider text-slate-400">
@@ -157,7 +160,7 @@ export default function ProjectDetail() {
                   {next.client} — {next.title}
                 </p>
               </div>
-              <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600">
+              <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-800">
                 View case study
                 <span
                   className="transition group-hover:translate-x-0.5"

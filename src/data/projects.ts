@@ -14,7 +14,6 @@ export type Project = {
   outcomes: { label: string; value: string }[]
   tech: string[]
   monogram: string
-  gradient: string
   featured?: boolean
 }
 
@@ -43,7 +42,6 @@ export const projects: Project[] = [
     ],
     tech: ['TypeScript', 'NestJS', 'PostgreSQL', 'Kafka', 'AWS', 'Terraform'],
     monogram: 'LL',
-    gradient: 'from-indigo-500 to-violet-600',
     featured: true,
   },
   {
@@ -70,7 +68,6 @@ export const projects: Project[] = [
     ],
     tech: ['React', 'Node.js', 'FHIR', 'GCP', 'PostgreSQL'],
     monogram: 'CH',
-    gradient: 'from-violet-500 to-fuchsia-600',
     featured: true,
   },
   {
@@ -97,7 +94,6 @@ export const projects: Project[] = [
     ],
     tech: ['Next.js', 'GraphQL', 'Redis', 'Contentful', 'Vercel'],
     monogram: 'OR',
-    gradient: 'from-fuchsia-500 to-pink-600',
     featured: true,
   },
   {
@@ -124,7 +120,6 @@ export const projects: Project[] = [
     ],
     tech: ['React Native', 'Go', 'TimescaleDB', 'MQTT', 'AWS'],
     monogram: 'KL',
-    gradient: 'from-sky-500 to-indigo-600',
   },
   {
     slug: 'vertex-document-intelligence',
@@ -150,7 +145,6 @@ export const projects: Project[] = [
     ],
     tech: ['Python', 'FastAPI', 'pgvector', 'OpenAI', 'AWS'],
     monogram: 'VA',
-    gradient: 'from-amber-500 to-orange-600',
   },
   {
     slug: 'lumen-grid-monitoring',
@@ -176,7 +170,6 @@ export const projects: Project[] = [
     ],
     tech: ['Next.js', 'Rust', 'TimescaleDB', 'Kafka', 'GCP'],
     monogram: 'LE',
-    gradient: 'from-emerald-500 to-teal-600',
   },
 ]
 

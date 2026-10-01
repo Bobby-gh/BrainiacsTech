@@ -5,7 +5,6 @@ export type Company = {
   engagement: string
   description: string
   monogram: string
-  gradient: string
 }
 
 export const companies: Company[] = [
@@ -17,7 +16,6 @@ export const companies: Company[] = [
     description:
       'Payments infrastructure processing 12M transactions a day. We rebuilt their settlement core and still run it as an embedded team.',
     monogram: 'LL',
-    gradient: 'from-indigo-500 to-violet-600',
   },
   {
     name: 'Cobalt Health',
@@ -27,7 +25,6 @@ export const companies: Company[] = [
     description:
       'Digital care platform for 14 clinics. Portal, FHIR integration, and a design system their internal team now extends.',
     monogram: 'CH',
-    gradient: 'from-violet-500 to-fuchsia-600',
   },
   {
     name: 'Orbit Retail',
@@ -37,7 +34,6 @@ export const companies: Company[] = [
     description:
       'Headless commerce over 1.4M SKUs, migrated with zero downtime across two peak trading seasons.',
     monogram: 'OR',
-    gradient: 'from-fuchsia-500 to-pink-600',
   },
   {
     name: 'Kite Logistics',
@@ -47,7 +43,6 @@ export const companies: Company[] = [
     description:
       'Driver app and operations console tracking 40,000 vehicles live across three continents.',
     monogram: 'KL',
-    gradient: 'from-sky-500 to-indigo-600',
   },
   {
     name: 'Vertex AI',
@@ -57,7 +52,6 @@ export const companies: Company[] = [
     description:
       'Went from a two-week AI feasibility pilot to a production document intelligence engine in five months.',
     monogram: 'VA',
-    gradient: 'from-amber-500 to-orange-600',
   },
   {
     name: 'Lumen Energy',
@@ -67,7 +61,6 @@ export const companies: Company[] = [
     description:
       'Streaming telemetry platform and operator console covering 1.2M data points per minute.',
     monogram: 'LE',
-    gradient: 'from-emerald-500 to-teal-600',
   },
   {
     name: 'Northwind',
@@ -77,7 +70,6 @@ export const companies: Company[] = [
     description:
       'Four engineers embedded for 18 months to modernise a claims system, then handed it back to their team.',
     monogram: 'NW',
-    gradient: 'from-rose-500 to-red-600',
   },
   {
     name: 'Sable Bank',
@@ -87,7 +79,6 @@ export const companies: Company[] = [
     description:
       'Moved a regulated core workload from on-prem to AWS with zero-downtime cutover and full audit trails.',
     monogram: 'SB',
-    gradient: 'from-blue-500 to-cyan-600',
   },
   {
     name: 'Peregrine',
@@ -97,7 +88,6 @@ export const companies: Company[] = [
     description:
       'Booking and itinerary engine serving 2M travellers a year, from discovery workshops to launch.',
     monogram: 'PG',
-    gradient: 'from-teal-500 to-emerald-600',
   },
   {
     name: 'Halcyon Media',
@@ -107,7 +97,6 @@ export const companies: Company[] = [
     description:
       'Subscription platform and paywall rebuilt for speed — LCP under 1.5s on every template.',
     monogram: 'HM',
-    gradient: 'from-purple-500 to-indigo-600',
   },
   {
     name: 'Terra Foods',
@@ -117,7 +106,6 @@ export const companies: Company[] = [
     description:
       'A supply-chain squad of five, embedded across three time zones, delivering quarterly releases.',
     monogram: 'TF',
-    gradient: 'from-orange-500 to-rose-600',
   },
   {
     name: 'Quill',
@@ -127,7 +115,6 @@ export const companies: Company[] = [
     description:
       'Performance, architecture review, and on-call coverage through a 10× growth year.',
     monogram: 'QL',
-    gradient: 'from-cyan-500 to-blue-600',
   },
 ]
 

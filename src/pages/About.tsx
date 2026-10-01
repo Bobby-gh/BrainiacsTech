@@ -5,9 +5,9 @@ import Stats from '../components/Stats'
 import { milestones, team, values } from '../data/company'
 
 const facts = [
-  { label: 'Founded', value: '2014 · New York' },
+  { label: 'Founded', value: '2014 · Accra, Tesano' },
   { label: 'Team', value: '60 engineers & designers' },
-  { label: 'Model', value: 'Remote-first, 3 hubs' },
+  { label: 'Model', value: 'UK-registered, Ghana-based' },
   { label: 'Engagements', value: 'Fixed-price or dedicated team' },
 ]
 
@@ -25,7 +25,7 @@ export default function About() {
       <PageHeader
         eyebrow="About us"
         title="Engineers who own the outcome"
-        description="Brainiac started in 2014 with one rule: no body shops, only product teams. Twelve years later, that rule is still how we hire, price, and deliver."
+        description="Brainiacs Tech is a UK software engineering company based in Accra, Tesano, Ghana. It started in 2014 with one rule: no body shops, only product teams — and twelve years later, that rule is still how we hire, price, and deliver."
       />
 
       {/* story */}
@@ -38,14 +38,15 @@ export default function About() {
             <p>
               Our founder spent a decade watching capable teams get buried under
               vendor handoffs, inflated estimates, and code nobody wanted to
-              maintain. Brainiac was founded to be the opposite: one team,
+              maintain. Brainiacs Tech was founded to be the opposite: one team,
               accountable from the first workshop to the production deploy.
             </p>
             <p>
-              Today we are 60 engineers, designers, and delivery leads working
-              across nine countries. We take on a handful of engagements at a
-              time so every client gets senior attention — which is why 94% of
-              our clients come back for the next project.
+              Today we are 60 engineers, designers, and delivery leads based in
+              Accra, London, and beyond — working across nine countries. We take
+              on a handful of engagements at a time so every client gets senior
+              attention — which is why 94% of our clients come back for the next
+              project.
             </p>
             <p>
               We do not sell headcount. We sell working software, honest
@@ -67,8 +68,8 @@ export default function About() {
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 p-6 text-white sm:col-span-2">
-            <p className="text-sm font-medium text-indigo-100">Since 2014</p>
+          <div className="rounded-xl bg-[#08376B] p-6 text-white sm:col-span-2">
+            <p className="text-sm font-medium text-blue-200">Since 2014</p>
             <p className="mt-2 text-2xl font-semibold tracking-tight">
               200+ products shipped, 120+ companies, one standard of craft.
             </p>
@@ -99,7 +100,7 @@ export default function About() {
       <section className="border-y border-slate-200/70 bg-slate-50/60">
         <div className="container-x py-20">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-wider text-indigo-600">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">
               What we believe
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
@@ -113,7 +114,7 @@ export default function About() {
                 key={value.title}
                 className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
               >
-                <span className="grid size-10 place-items-center rounded-lg bg-gradient-to-br from-indigo-50 to-violet-50 text-indigo-600">
+                <span className="grid size-10 place-items-center rounded-md bg-blue-50 text-[#08376B]">
                   <svg
                     viewBox="0 0 24 24"
                     className="size-5"
@@ -142,7 +143,7 @@ export default function About() {
       {/* timeline */}
       <section className="container-x py-20">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-wider text-indigo-600">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">
             Our story
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
@@ -161,13 +162,13 @@ export default function About() {
                 aria-hidden="true"
               />
               <div className="text-right">
-                <span className="font-mono text-sm font-semibold text-indigo-600">
+                <span className="font-mono text-sm font-semibold text-blue-700">
                   {item.year}
                 </span>
               </div>
               <div className="relative">
                 <span
-                  className="absolute -left-[1.95rem] top-1.5 size-2.5 rounded-full bg-indigo-500 ring-4 ring-indigo-100"
+                  className="absolute -left-[1.95rem] top-1.5 size-2.5 rounded-full bg-blue-700 ring-4 ring-blue-100"
                   aria-hidden="true"
                 />
                 <h3 className="text-base font-semibold text-slate-900">
@@ -186,7 +187,7 @@ export default function About() {
       <section className="border-t border-slate-200/70 bg-slate-50/60">
         <div className="container-x py-20">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-wider text-indigo-600">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">
               Leadership
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
@@ -205,7 +206,7 @@ export default function About() {
               >
                 <div className="flex items-center gap-4">
                   <span
-                    className={`grid size-12 shrink-0 place-items-center rounded-full bg-gradient-to-br text-sm font-semibold text-white ${member.gradient}`}
+                    className="grid size-12 shrink-0 place-items-center rounded-full bg-[#08376B] text-sm font-semibold text-white"
                     aria-hidden="true"
                   >
                     {member.initials}
@@ -214,7 +215,7 @@ export default function About() {
                     <h3 className="text-base font-semibold text-slate-900">
                       {member.name}
                     </h3>
-                    <p className="text-xs font-medium text-indigo-600">
+                    <p className="text-xs font-medium text-blue-700">
                       {member.role}
                     </p>
                   </div>

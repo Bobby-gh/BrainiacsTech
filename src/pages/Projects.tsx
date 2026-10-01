@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import CTA from '../components/CTA'
 import PageHeader from '../components/PageHeader'
 import { projectCategories, projects } from '../data/projects'
+import { projectImages } from '../data/images'
 
 export default function Projects() {
   const [category, setCategory] = useState<string>('All')
@@ -17,7 +18,7 @@ export default function Projects() {
       <PageHeader
         eyebrow="Our work"
         title="Case studies from the field"
-        description="Six engagements, six measurable outcomes. Every project below was designed, built, and shipped by an embedded Brainiac team."
+        description="Six engagements, six measurable outcomes. Every project below was designed, built, and shipped by an embedded Brainiacs Tech team."
       >
         <p className="text-sm text-slate-500">
           200+ products shipped since 2014 · these are the ones we can talk
@@ -35,7 +36,7 @@ export default function Projects() {
               aria-pressed={category === item}
               className={`rounded-full border px-4 py-1.5 text-sm font-medium transition ${
                 category === item
-                  ? 'border-slate-900 bg-slate-900 text-white'
+                  ? 'border-[#08376B] bg-[#08376B] text-white shadow-lg shadow-blue-950/15'
                   : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900'
               }`}
             >
@@ -49,15 +50,20 @@ export default function Projects() {
             <Link
               key={project.slug}
               to={`/projects/${project.slug}`}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-200 hover:shadow-lg"
+              className="group flex flex-col overflow-hidden rounded-xl border border-[#dce4ef] bg-white transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-950/5"
             >
-              <div
-                className={`relative flex h-36 items-end justify-between bg-gradient-to-br p-5 ${project.gradient}`}
-              >
+              <div className="image-card relative flex h-52 items-end justify-between overflow-hidden bg-[#08376B] p-5">
+                <img
+                  src={projectImages[project.slug]}
+                  alt={`${project.client} project visual`}
+                  loading="lazy"
+                  className="absolute inset-0 size-full object-cover opacity-75"
+                />
+                <div className="absolute inset-0 bg-[#08376B]/55" aria-hidden="true" />
                 <span className="text-4xl font-bold tracking-tight text-white/90">
                   {project.monogram}
                 </span>
-                <span className="rounded-full bg-white/20 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur">
+                <span className="rounded-full border border-white/25 bg-[#061b38]/40 px-3 py-1.5 text-[11px] font-semibold text-white backdrop-blur">
                   {project.category}
                 </span>
               </div>
@@ -97,7 +103,7 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600">
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-800">
                   Read the case study
                   <span
                     className="transition group-hover:translate-x-0.5"
@@ -114,7 +120,7 @@ export default function Projects() {
         {visible.length === 0 && (
           <p className="mt-12 text-center text-sm text-slate-500">
             No public case studies in this category yet —{' '}
-            <Link to="/contact" className="font-semibold text-indigo-600">
+            <Link to="/contact" className="font-semibold text-blue-800">
               ask us about it
             </Link>
             .

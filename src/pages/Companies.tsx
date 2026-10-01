@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import CTA from '../components/CTA'
 import PageHeader from '../components/PageHeader'
 import { companies, companyIndustries } from '../data/companies'
+import { companyImages } from '../data/images'
 
 const quickStats = [
   { value: '120+', label: 'Companies served' },
@@ -31,10 +32,10 @@ export default function Companies() {
             <div key={stat.label}>
               <dt className="sr-only">{stat.label}</dt>
               <dd>
-                <p className="text-2xl font-semibold tracking-tight text-slate-900">
+                <p className="text-2xl font-semibold tracking-tight text-white">
                   {stat.value}
                 </p>
-                <p className="mt-1 text-xs text-slate-500">{stat.label}</p>
+                <p className="mt-1 text-xs text-blue-100/65">{stat.label}</p>
               </dd>
             </div>
           ))}
@@ -51,7 +52,7 @@ export default function Companies() {
               aria-pressed={industry === item}
               className={`rounded-full border px-4 py-1.5 text-sm font-medium transition ${
                 industry === item
-                  ? 'border-slate-900 bg-slate-900 text-white'
+                  ? 'border-[#08376B] bg-[#08376B] text-white shadow-lg shadow-blue-950/15'
                   : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900'
               }`}
             >
@@ -64,11 +65,20 @@ export default function Companies() {
           {visible.map((company) => (
             <article
               key={company.name}
-              className="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-200 hover:shadow-md"
+              className="flex flex-col overflow-hidden rounded-2xl border border-[#dce4ef] bg-white transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-950/10"
             >
-              <div className="flex items-center gap-3">
+              <div className="image-card relative h-36 overflow-hidden bg-[#08376B]">
+                <img
+                  src={companyImages[company.industry] ?? companyImages.SaaS}
+                  alt={`${company.industry} technology`} 
+                  loading="lazy"
+                  className="size-full object-cover opacity-80"
+                />
+                <div className="absolute inset-0 bg-[#08376B]/40" aria-hidden="true" />
+              </div>
+              <div className="flex items-center gap-3 px-6 pt-5">
                 <span
-                  className={`grid size-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br text-sm font-bold text-white ${company.gradient}`}
+                  className="grid size-11 shrink-0 place-items-center rounded-lg bg-[#08376B] text-sm font-bold text-white"
                   aria-hidden="true"
                 >
                   {company.monogram}
@@ -83,17 +93,17 @@ export default function Companies() {
                 </div>
               </div>
 
-              <p className="mt-4 flex-1 text-sm leading-relaxed text-slate-600">
+              <p className="mt-4 flex-1 px-6 text-sm leading-relaxed text-slate-600">
                 {company.description}
               </p>
 
-              <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-4">
-                <span className="rounded-full bg-indigo-50 px-2.5 py-1 text-[11px] font-semibold text-indigo-600">
+              <div className="mx-6 mb-6 mt-5 flex items-center justify-between border-t border-slate-100 pt-4">
+                <span className="rounded-full bg-blue-50 px-2.5 py-1 text-[11px] font-semibold text-blue-800">
                   {company.engagement}
                 </span>
                 <Link
                   to="/projects"
-                  className="text-xs font-semibold text-slate-400 transition hover:text-indigo-600"
+                  className="text-xs font-semibold text-slate-400 transition hover:text-blue-700"
                 >
                   See the work →
                 </Link>
@@ -106,7 +116,7 @@ export default function Companies() {
           <p className="mt-12 text-center text-sm text-slate-500">
             No public names in this industry — we likely still work there under
             NDA.{' '}
-            <Link to="/contact" className="font-semibold text-indigo-600">
+            <Link to="/contact" className="font-semibold text-blue-800">
               Ask us directly
             </Link>
             .

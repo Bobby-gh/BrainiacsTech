@@ -1,11 +1,10 @@
 const testimonials = [
   {
     quote:
-      'We replaced three tools with Brainiac. Our PMs finally answer their own questions, and standup is about decisions instead of dashboard archaeology.',
+      'We replaced three tools with Brainiacs Tech. Our PMs finally answer their own questions, and standup is about decisions instead of dashboard archaeology.',
     name: 'Priya Raman',
     role: 'VP Product, Northwind',
     initials: 'PR',
-    gradient: 'from-indigo-500 to-violet-500',
   },
   {
     quote:
@@ -13,7 +12,6 @@ const testimonials = [
     name: 'Marcus Lee',
     role: 'Head of Growth, Vertex',
     initials: 'ML',
-    gradient: 'from-violet-500 to-fuchsia-500',
   },
   {
     quote:
@@ -21,7 +19,6 @@ const testimonials = [
     name: 'Sofia Álvarez',
     role: 'CTO, Cobalt',
     initials: 'SA',
-    gradient: 'from-fuchsia-500 to-pink-500',
   },
 ]
 
@@ -30,7 +27,7 @@ export default function Testimonials() {
     <section id="testimonials" className="border-t border-slate-200/70 bg-slate-50/60">
       <div className="container-x py-20 sm:py-28">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-wider text-indigo-600">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">
             Customers
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
@@ -46,14 +43,14 @@ export default function Testimonials() {
           {testimonials.map((item) => (
             <figure
               key={item.name}
-              className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+              className="flex flex-col justify-between rounded-xl border border-[#dce4ef] bg-white p-6"
             >
               <blockquote className="text-sm leading-relaxed text-slate-700">
                 “{item.quote}”
               </blockquote>
               <figcaption className="mt-6 flex items-center gap-3 border-t border-slate-100 pt-5">
                 <span
-                  className={`grid size-10 shrink-0 place-items-center rounded-full bg-gradient-to-br text-xs font-semibold text-white ${item.gradient}`}
+                  className="grid size-10 shrink-0 place-items-center rounded-full bg-[#08376B] text-xs font-semibold text-white"
                   aria-hidden="true"
                 >
                   {item.initials}
