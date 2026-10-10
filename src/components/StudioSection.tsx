@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { sectionImages } from '../data/images'
 
 const principles = [
   {
@@ -26,8 +27,8 @@ export default function StudioSection() {
           <figure className="image-card m-0">
             <div className="overflow-hidden rounded-md bg-slate-200">
               <img
-                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1400&q=85"
-                alt="Product designers and engineers collaborating around a table"
+                src={sectionImages.studioCollab}
+                alt="Designers and engineers collaborating around a table"
                 loading="lazy"
                 className="studio-photo aspect-[4/3] w-full object-cover"
               />

@@ -1,28 +1,26 @@
 import { Link } from 'react-router-dom'
+import { showcaseImages } from '../data/images'
 
 const brainiacsCompanies = [
   {
     name: 'Brainiacs Tech',
     description: 'Digital products, engineered to move businesses forward.',
     to: '/',
-    image:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=85',
+    image: showcaseImages.tech,
     imageAlt: 'Developer working at a computer',
   },
   {
     name: 'Brainiacs Space',
     description: 'A coworking home for independent minds and ambitious teams.',
     to: '/space',
-    image:
-      'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85',
+    image: showcaseImages.space,
     imageAlt: 'Bright shared coworking space',
   },
   {
     name: 'Brainiacs Talents',
     description: 'Thoughtful technology recruitment that brings people together.',
     to: '/talents',
-    image:
-      'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=85',
+    image: showcaseImages.talents,
     imageAlt: 'People meeting in a modern office',
   },
 ]

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { sectionImages } from '../data/images'
 
 const facts = [
   { value: '2014', label: 'Founded in Accra' },
@@ -43,8 +44,8 @@ export default function AboutUsSection() {
           <div className="relative mx-auto w-full max-w-xl lg:mx-0 lg:justify-self-end">
             <div className="overflow-hidden rounded-xl bg-[#08376B] shadow-xl shadow-[#08376B]/15">
               <img
-                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=85"
-                alt="The Brainiacs team working together around a table"
+                src={sectionImages.aboutTeam}
+                alt="A Brainiacs engineer leading a working session at the table"
                 loading="lazy"
                 className="aspect-[4/3] w-full object-cover"
               />

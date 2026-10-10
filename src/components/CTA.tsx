@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react'
+import { ctaImages } from '../data/images'
 
 export default function CTA() {
   const [email, setEmail] = useState('')
@@ -64,20 +65,20 @@ export default function CTA() {
 
         <figure className="grid min-h-[17rem] grid-cols-5 grid-rows-2 gap-2 p-2 pt-0 sm:min-h-[24rem] sm:gap-3 sm:p-3 lg:h-[24rem] lg:min-h-0 lg:self-center lg:pl-0">
           <img
-            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1100&q=85"
-            alt="A product team collaborating around a table"
+            src={ctaImages.main}
+            alt="A Black-led product team in a strategy meeting"
             loading="lazy"
             className="col-span-3 row-span-2 size-full min-h-0 object-cover"
           />
           <img
-            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=85"
-            alt="Developer workstation with code on screen"
+            src={ctaImages.laptop}
+            alt="A founder working on her laptop"
             loading="lazy"
             className="col-span-2 size-full min-h-0 object-cover"
           />
           <img
-            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=85"
-            alt="Colleagues working together at laptops"
+            src={ctaImages.team}
+            alt="Engineers workshopping product ideas at a shared table"
             loading="lazy"
             className="col-span-2 size-full min-h-0 object-cover"
           />

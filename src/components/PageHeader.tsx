@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { pageBannerImages } from '../data/images'
 
 type PageHeaderProps = {
   eyebrow: string
@@ -17,12 +18,12 @@ export default function PageHeader({
 }: PageHeaderProps) {
   const bannerImage = image ?? (
     eyebrow.toLowerCase().includes('about')
-      ? 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=2200&q=85'
+      ? pageBannerImages.about
       : eyebrow.toLowerCase().includes('contact')
-        ? 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2200&q=85'
-        : eyebrow.toLowerCase().includes('companies')
-          ? 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2200&q=85'
-          : 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=2200&q=85'
+        ? pageBannerImages.contact
+        : eyebrow.toLowerCase().includes('companies') || eyebrow.toLowerCase().includes('companies')
+          ? pageBannerImages.companies
+          : pageBannerImages.default
   )
 
   return (

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { sectionImages } from '../data/images'
 
 export default function OfficeOpening() {
   return (
@@ -7,14 +8,14 @@ export default function OfficeOpening() {
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-14">
           <div className="grid grid-cols-[1.5fr_0.85fr] items-end gap-3 sm:gap-5">
             <img
-              src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=85"
-              alt="Bright, newly opened Brainiacs Tech office with shared workspace"
+              src={sectionImages.officeMain}
+              alt="The newly opened Brainiacs Tech office with the team at work"
               loading="lazy"
               className="aspect-[4/3] w-full rounded-md object-cover"
             />
             <img
-              src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=85"
-              alt="Meeting area in the new office"
+              src={sectionImages.officeMeeting}
+              alt="A relaxed meeting corner in the new office"
               loading="lazy"
               className="mb-7 aspect-[3/4] w-full rounded-md object-cover sm:mb-10"
             />

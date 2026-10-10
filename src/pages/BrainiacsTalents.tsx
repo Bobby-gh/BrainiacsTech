@@ -1,6 +1,9 @@
 import { useState, type FormEvent } from 'react'
 import PageHeader from '../components/PageHeader'
 
+// Photo ID for this page banner only (unique across the whole site)
+const pageBannerTalents = 'https://images.unsplash.com/photo-1573167691330-597fd91bc6c7?auto=format&fit=crop&w=2200&q=85'
+
 const inputClass =
   'w-full rounded-md border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20'
 
@@ -40,7 +43,7 @@ export default function BrainiacsTalents() {
         eyebrow="Brainiacs Talents · Technology recruitment"
         title="The right people change everything."
         description="A specialist recruitment partner helping ambitious businesses find exceptional technology talent—and helping people find their next opportunity."
-        image="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=2200&q=85"
+        image={pageBannerTalents}
       />
 
       <section className="container-x grid gap-10 py-16 sm:py-20 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">

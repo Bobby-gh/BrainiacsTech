@@ -41,7 +41,7 @@ export default function BrainiacsSpace() {
         eyebrow="Brainiacs Space · Coworking"
         title="A better place to do your best work."
         description="A welcoming coworking space in Tesano, Accra — home to independent professionals, growing teams, and curious minds who do their best work together."
-        image="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2200&q=85"
+        image="https://images.unsplash.com/photo-1702047149248-a6049168d2a8?auto=format&fit=crop&w=2200&q=85"
       />
 
       <section className="container-x grid gap-10 py-16 sm:py-20 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
