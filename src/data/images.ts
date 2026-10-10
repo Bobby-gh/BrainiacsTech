@@ -10,17 +10,17 @@ const unsplash = (photo: string, width = 1400) =>
 export const heroSlides = [
   {
     // Open-plan tech studio environment — slide 1
-    src: unsplash('photo-1631193816258-28b44b21e78b', 2400),
+    src: unsplash('photo-1622675363311-3e1904dc1885', 2400),
     alt: 'Rows of tuned workstations inside an open-plan technology studio',
   },
   {
     // Light-filled tech office environment — slide 2
-    src: unsplash('photo-1770992225357-21eb44fcf04a', 2400),
+    src: unsplash('photo-1688380692117-63178554d76d', 2400),
     alt: 'A modern tech company office full of daylight, computers, and plants',
   },
   {
     // People shot — a Black product team at work (UK Black Tech)
-    src: unsplash('photo-1653566031535-bcf33e1c2893', 2400),
+    src: unsplash('photo-1557804506-669a67965ba0', 2400),
     alt: 'A Black product team collaborating around a table with laptops',
   },
 ] as const
@@ -74,7 +74,7 @@ export const sectionImages = {
 
 // ── Three-company showcase on the home page ─────────────────────────────────
 export const showcaseImages = {
-  tech: unsplash('photo-1686249959385-ee6c7dcdf0ec', 1000), // a Black developer heads-down at his laptop
+  tech: unsplash('photo-1563461660947-507ef49e9c47', 1000), // a Black developer heads-down at his laptop
   space: unsplash('photo-1554902843-260acd0993f8', 1000), // three women working around a shared table (CoWomen)
   talents: unsplash('photo-1573497020210-407242f00778', 1000), // Black women panel at a table (WOCinTech)
 } as const
