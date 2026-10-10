@@ -35,12 +35,12 @@ export const companyImages: Record<string, string> = {
 // Hero carousel — Black American technology teams at work.
 export const heroSlides = [
   {
-    src: unsplash('photo-1653566031535-bcf33e1c2893', 2400), // Black team around table with laptops (UK Black Tech)
-    alt: 'An all-Black product team collaborating around a table with laptops',
+    src: unsplash('photo-1686249959385-ee6c7dcdf0ec', 2400), // Black developer at his laptop (Nubelson Fernandes)
+    alt: 'A Black software developer working at a laptop',
   },
   {
-    src: unsplash('photo-1641759191629-cc107016e78a', 2400), // Black man and woman pair-programming (Francis Odeyemi)
-    alt: 'Two Black engineers pair-programming at a laptop',
+    src: unsplash('photo-1642929456654-f4540e3e2a85', 2400), // Black woman founder working on a laptop (Francis Odeyemi)
+    alt: 'A Black technology founder working on her laptop',
   },
   {
     src: unsplash('photo-1573164574511-73c773193279', 2400), // Black women collaborating in a tech office (WOCinTech)
@@ -66,7 +66,7 @@ export const sectionImages = {
 
 // Three-company showcase on the home page.
 export const showcaseImages = {
-  tech: unsplash('photo-1686249959385-ee6c7dcdf0ec', 1000), // Black developer at his laptop (Nubelson Fernandes)
+  tech: unsplash('photo-1641759191629-cc107016e78a', 1000), // Black engineers pair-programming (Francis Odeyemi)
   space: unsplash('photo-1653566031535-bcf33e1c2893', 1000), // Black tech team sharing a workspace (UK Black Tech)
   talents: unsplash('photo-1573497020210-407242f00778', 1000), // Black women panel at a table (WOCinTech)
 } as const
@@ -74,6 +74,6 @@ export const showcaseImages = {
 // CTA collage (three large panels, bottom of every page).
 export const ctaImages = {
   main: unsplash('photo-1573167627769-e201a7ddf409', 1100), // Black women in a strategy meeting (WOCinTech)
-  laptop: unsplash('photo-1642929456654-f4540e3e2a85', 800), // Black woman founder on laptop (Francis Odeyemi)
+  laptop: unsplash('photo-1573164713714-d95e436ab8d6', 800), // Technology professional working on a tablet
   team: unsplash('photo-1653566031414-4ac6936a3e66', 800), // Black team workshop with laptops (UK Black Tech)
 } as const

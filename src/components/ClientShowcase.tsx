@@ -7,7 +7,7 @@ const brainiacsCompanies = [
     description: 'Digital products, engineered to move businesses forward.',
     to: '/',
     image: showcaseImages.tech,
-    imageAlt: 'Developer working at a computer',
+    imageAlt: 'Black software engineers pair-programming in a technology workspace',
   },
   {
     name: 'Brainiacs Space',
