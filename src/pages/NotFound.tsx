@@ -4,8 +4,8 @@ export default function NotFound() {
   return (
     <section className="image-banner relative min-h-[38rem] overflow-hidden text-white">
       <img
-        src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2200&q=85"
-        alt="Close-up of a circuit board"
+        src="https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?auto=format&fit=crop&w=2200&q=85"
+        alt="Racked servers in a modern data center"
         fetchPriority="high"
       />
       <div className="container-x flex min-h-[38rem] flex-col items-center justify-center py-28 text-center sm:py-36">
