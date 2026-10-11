@@ -1,15 +1,107 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Logo from './Logo'
+import { branches } from '../data/group'
 
 const links = [
-  { label: 'Home', to: '/' },
+  { label: 'Group companies', to: '/group' },
   { label: 'Projects', to: '/projects' },
   { label: 'Services', to: '/services' },
-  { label: 'Companies', to: '/companies' },
   { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ]
+
+/** Small custom dropdown listing the three sub-companies. */
+function CompaniesMenu() {
+  const [open, setOpen] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false)
+      }
+    }
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === 'Escape') setOpen(false)
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('keydown', handleEscape)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('keydown', handleEscape)
+    }
+  }, [])
+
+  return (
+    <div ref={containerRef} className="relative h-full">
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-haspopup="true"
+        onClick={() => setOpen((value) => !value)}
+        className={`inline-flex h-full items-center gap-1.5 text-[13px] font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[#04B1C4] ${
+          open ? 'text-[#08376B]' : 'text-slate-600 hover:text-[#08376B]'
+        }`}
+      >
+        Group companies
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          className={`size-3.5 transition-transform ${open ? 'rotate-180' : ''}`}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </button>
+
+      {open && (
+        <div
+          className="absolute left-1/2 top-full z-10 w-72 -translate-x-1/2 pt-2"
+          role="menu"
+          aria-label="Group companies"
+        >
+          <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl shadow-slate-950/10">
+            {branches.map((branch) => (
+              <NavLink
+                key={branch.slug}
+                to={branch.path}
+                onClick={() => setOpen(false)}
+                className="flex items-start gap-3 border-b border-slate-100 px-4 py-3.5 last:border-0 hover:bg-slate-50"
+              >
+                <span className="mt-0.5 shrink-0">
+                  <Logo company={branch.logoKey} variant="dark" />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-sm font-semibold text-[#08376B]">
+                    {branch.name.replace('Brainiacs ', '')}
+                  </span>
+                  <span className="mt-0.5 block text-xs leading-4 text-slate-500">
+                    {branch.tagline}
+                  </span>
+                </span>
+              </NavLink>
+            ))}
+            <NavLink
+              to="/group"
+              onClick={() => setOpen(false)}
+              className="block bg-slate-50 px-4 py-3 text-center text-xs font-semibold text-[#04B1C4] hover:bg-slate-100"
+            >
+              About Brainiacs Group →
+            </NavLink>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -20,19 +112,25 @@ export default function Navbar() {
         <NavLink
           to="/"
           className="shrink-0 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#04B1C4]"
-          aria-label="Brainiacs Tech home"
+          aria-label="Brainiacs Group home"
           onClick={() => setOpen(false)}
         >
-          <Logo />
+          <Logo company="group" />
         </NavLink>
 
         <nav className="hidden h-full items-center gap-7 lg:flex" aria-label="Primary">
+          <CompaniesMenu />
           {links.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
-              end={link.to === '/'}
-              className={({ isActive }) => `nav-link relative inline-flex h-full items-center text-[13px] font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[#04B1C4] ${isActive ? 'nav-link-active text-[#08376B]' : 'text-slate-600 hover:text-[#08376B]'}`}
+              className={({ isActive }) =>
+                `relative inline-flex h-full items-center text-[13px] font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[#04B1C4] ${
+                  isActive
+                    ? 'nav-link-active text-[#08376B]'
+                    : 'text-slate-600 hover:text-[#08376B]'
+                }`
+              }
             >
               {link.label}
             </NavLink>
@@ -83,15 +181,54 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div id="mobile-navigation" className="nav-panel-enter border-t border-slate-200 bg-white lg:hidden">
+        <div
+          id="mobile-navigation"
+          className="nav-panel-enter border-t border-slate-200 bg-white lg:hidden"
+        >
           <nav className="container-x flex flex-col gap-1 py-3" aria-label="Mobile">
+            <p className="px-3 pb-1 pt-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+              Group companies
+            </p>
+            {branches.map((branch) => (
+              <NavLink
+                key={branch.slug}
+                to={branch.path}
+                onClick={() => setOpen(false)}
+                className={({ isActive }) =>
+                  `flex items-center gap-3 rounded-md px-3 py-3 text-sm font-medium transition ${
+                    isActive
+                      ? 'bg-[#08376B] text-white'
+                      : 'text-slate-700 hover:bg-slate-100 hover:text-[#08376B]'
+                  }`
+                }
+              >
+                <span className="shrink-0">
+                  <Logo company={branch.logoKey} variant="light" />
+                </span>
+                <span>
+                  {branch.name.replace('Brainiacs ', '')}
+                  <span className="block text-[11px] font-normal text-slate-500">
+                    {branch.tagline}
+                  </span>
+                </span>
+              </NavLink>
+            ))}
+
+            <p className="px-3 pb-1 pt-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+              Explore
+            </p>
             {links.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
-                end={link.to === '/'}
                 onClick={() => setOpen(false)}
-                className={({ isActive }) => `rounded-md px-3 py-3 text-sm font-medium transition ${isActive ? 'bg-[#08376B] text-white' : 'text-slate-700 hover:bg-slate-100 hover:text-[#08376B]'}`}
+                className={({ isActive }) =>
+                  `rounded-md px-3 py-3 text-sm font-medium transition ${
+                    isActive
+                      ? 'bg-[#08376B] text-white'
+                      : 'text-slate-700 hover:bg-slate-100 hover:text-[#08376B]'
+                  }`
+                }
               >
                 {link.label}
               </NavLink>

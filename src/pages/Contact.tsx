@@ -3,14 +3,15 @@ import CTA from '../components/CTA'
 import PageHeader from '../components/PageHeader'
 
 const services = [
-  'Product engineering',
-  'Web application',
-  'Mobile app',
-  'Cloud & DevOps',
-  'AI & data',
-  'Embedded team',
+  'Brainiacs Tech — product engineering',
+  'Brainiacs Tech — web application',
+  'Brainiacs Tech — mobile app',
+  'Brainiacs Tech — cloud & DevOps',
+  'Brainiacs Tech — AI & data',
+  'Brainiacs Tech — embedded team',
   'Brainiacs Talents — technology recruitment',
   'Brainiacs Space — coworking',
+  'Brainiacs Group — something else',
 ]
 
 const budgets = [

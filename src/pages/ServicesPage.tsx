@@ -8,8 +8,8 @@ export default function ServicesPage() {
     <>
       <PageHeader
         eyebrow="What we do"
-        title="More than software. The support to build what’s next."
-        description="From product engineering to the people and places that help teams thrive, explore the ways Brainiacs Tech can help you move forward."
+        title="More than software. The support to build what's next."
+        description="From product engineering to recruitment and coworking, explore the ways the Brainiacs Group companies can help you move forward."
       />
 
       <section className="container-x py-14 sm:py-20" aria-label="Our services">
@@ -57,10 +57,21 @@ export default function ServicesPage() {
                   {service.body}
                 </p>
                 <Link
-                  to="/contact"
+                  to={
+                    service.id === 'talents'
+                      ? '/talents#recruitment-form'
+                      : service.id === 'space'
+                        ? '/space#booking'
+                        : '/contact'
+                  }
                   className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-[#08376B] transition hover:gap-3 hover:text-[#04B1C4]"
                 >
-                  Discuss this service <span aria-hidden="true">→</span>
+                  {service.id === 'talents'
+                    ? 'Join Brainiacs Talents'
+                    : service.id === 'space'
+                      ? 'Join Brainiacs Space'
+                      : 'Discuss this service'}{' '}
+                  <span aria-hidden="true">→</span>
                 </Link>
               </div>
             </article>

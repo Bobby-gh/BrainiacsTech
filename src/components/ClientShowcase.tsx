@@ -1,29 +1,10 @@
 import { Link } from 'react-router-dom'
-import { showcaseImages } from '../data/images'
+import { branches } from '../data/group'
 
-const brainiacsCompanies = [
-  {
-    name: 'Brainiacs Tech',
-    description: 'Digital products, engineered to move businesses forward.',
-    to: '/',
-    image: showcaseImages.tech,
-    imageAlt: 'Black software engineers pair-programming in a technology workspace',
-  },
-  {
-    name: 'Brainiacs Space',
-    description: 'A coworking home for independent minds and ambitious teams.',
-    to: '/space',
-    image: showcaseImages.space,
-    imageAlt: 'Bright shared coworking space',
-  },
-  {
-    name: 'Brainiacs Talents',
-    description: 'Thoughtful technology recruitment that brings people together.',
-    to: '/talents',
-    image: showcaseImages.talents,
-    imageAlt: 'People meeting in a modern office',
-  },
-]
+const order = ['tech', 'space', 'talents'] as const
+const brainiacsCompanies = order.map(
+  (slug) => branches.find((branch) => branch.slug === slug)!,
+)
 
 export default function ClientShowcase() {
   return (
@@ -36,7 +17,7 @@ export default function ClientShowcase() {
           {brainiacsCompanies.map((company) => (
             <li key={company.name} className="min-w-0">
               <Link
-                to={company.to}
+                to={company.path}
                 aria-label={`Explore ${company.name}`}
                 className="group block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#04B1C4]"
               >
