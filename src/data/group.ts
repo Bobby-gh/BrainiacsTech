@@ -80,7 +80,7 @@ export const group = {
       alt: 'Bright collaborative workspace with a shared table and laptops',
     },
     {
-      src: unsplash('photo-1598624443973-2aa79a646a1e'),
+      src: unsplash('photo-1584761696377-008e22a7fb15'),
       alt: 'People meeting together at a bright coworking table',
     },
   ] as { src: string; alt: string }[],
