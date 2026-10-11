@@ -3,6 +3,8 @@ type LogoCompany = 'group' | 'tech' | 'space' | 'talents'
 type LogoProps = {
   variant?: 'dark' | 'light'
   company?: LogoCompany
+  /** Show only the logo mark tile, without the wordmark next to it. */
+  marksOnly?: boolean
 }
 
 /** Per-company logo marks, one for each Brainiacs Group company. */
@@ -127,12 +129,28 @@ const marks: Record<
   },
 }
 
-export default function Logo({ variant = 'dark', company = 'tech' }: LogoProps) {
+export default function Logo({
+  variant = 'dark',
+  company = 'tech',
+  marksOnly = false,
+}: LogoProps) {
   const mark = marks[company]
   const tileBackground =
     company === 'tech' ? 'bg-[#08376B]' : 'bg-[#04B1C4]'
   const wordmarkColor = variant === 'dark' ? 'text-[#08376B]' : 'text-white'
   const [first, second] = mark.words
+
+  if (marksOnly) {
+    return (
+      <span
+        className={`grid size-9 shrink-0 place-items-center rounded-md ${tileBackground} ring-1 ring-[#04B1C4]/40`}
+        role="img"
+        aria-label={mark.words.join(' ')}
+      >
+        {mark.svg}
+      </span>
+    )
+  }
 
   return (
     <span className="inline-flex items-center gap-2.5" aria-label={mark.words.join(' ')}>

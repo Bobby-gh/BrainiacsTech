@@ -30,8 +30,11 @@ const principles = [
 export default function GroupHome() {
   return (
     <>
-      {/* Same carousel hero as /tech */}
-      <Hero ariaLabel="The Brainiacs Group companies at work" />
+      {/* Same carousel layout as /tech, with the group's own imagery */}
+      <Hero
+        ariaLabel="The Brainiacs Group companies at work"
+        slides={[...group.heroSlides]}
+      />
 
       {/* Group intro, directly under the hero */}
       <ScrollReveal>

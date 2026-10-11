@@ -15,6 +15,11 @@ export type Branch = {
   highlights: { value: string; label: string }[]
 }
 
+// Photo IDs for the group's own hero carousel — NOT shared with Tech's hero.
+// Tech uses photo-1622675363311 / photo-1688380692117 / photo-1557804506.
+const unsplash = (photo: string, width = 2400) =>
+  `https://images.unsplash.com/${photo}?auto=format&fit=crop&w=${width}&q=85`
+
 /**
  * Brainiacs Group is the mother company. Tech, Space and Talents are the
  * three sub-companies — each with its own logo mark (see components/Logo.tsx),
@@ -27,6 +32,58 @@ export const group = {
     'Brainiacs Group is a family of companies that helps ambitious people build better products, find better people, and work in better places. Founded in Accra in 2014, the group now spans software engineering, coworking, and technology recruitment across Accra and London.',
   founded: '2014 · Accra, Tesano',
   offices: 'Accra, Ghana · London, UK',
+  about: [
+    'Brainiacs started in 2014 as a small software engineering team with one rule: no body shops, only product teams. Twelve years later that rule has not changed — it has simply been joined by two more companies built on the same idea.',
+    'Today Brainiacs Group is the shared home for Brainiacs Tech, Brainiacs Space, and Brainiacs Talents. Each company has its own team, its own customers, and its own way of working. Each is accountable for its own outcome. What they share is the thing that made the first company work: senior attention, honest estimates, and craft that does not bend for speed.',
+    'The group stays deliberately small. Coinbase-scale is not the goal; being the company that people trust with the thing that matters is. That is why 94% of Tech’s clients come back, why members renew at Space every month, and why Talents asks about both the candidate and the company before making an introduction.',
+  ],
+  whatWeDo: [
+    {
+      title: 'Build software',
+      body: 'Through Brainiacs Tech we take products from whiteboard sketch to production and stay on to keep them healthy — web platforms, mobile apps, cloud infrastructure, and practical AI.',
+    },
+    {
+      title: 'Host the work',
+      body: 'Through Brainiacs Space we run the coworking home in Tesano, Accra — flexible desks, meeting rooms, and a community where independents and small teams do their best work.',
+    },
+    {
+      title: 'Find the people',
+      body: 'Through Brainiacs Talents we connect companies with technology professionals across engineering, product, data, and design — matched carefully, introduced personally.',
+    },
+  ],
+  objectives: [
+    {
+      title: 'Own every outcome',
+      body: 'No handoffs, no vendors-in-the-middle. Whichever company you work with, the people doing the work answer for the result.',
+    },
+    {
+      title: 'Keep craft non-negotiable',
+      body: 'Readable code, honest estimates, and decisions we can defend a year later. Quality is what makes the next piece of work cheap.',
+    },
+    {
+      title: 'Build where we live',
+      body: 'We are rooted in Accra and work across borders. The group exists to grow opportunity here — for engineers, members, and candidates alike.',
+    },
+    {
+      title: 'Stay small on purpose',
+      body: 'We take on fewer engagements so each one gets senior attention. Growth is welcome; being stretched thin is not.',
+    },
+  ],
+  // Group hero carousel — used on the group home, distinct from Tech.
+  heroSlides: [
+    {
+      src: unsplash('photo-1600880292089-90a7e086ee0c'),
+      alt: 'Bright collaborative workspace with a shared table and laptops',
+    },
+    {
+      src: unsplash('photo-1522202176988-66273c2fd55f'),
+      alt: 'People meeting together at a bright coworking table',
+    },
+    {
+      src: unsplash('photo-1516534775068-ba3e7458af70'),
+      alt: 'Two colleagues working side by side on laptops in daylight',
+    },
+  ] as { src: string; alt: string }[],
 }
 
 export const branches: Branch[] = [

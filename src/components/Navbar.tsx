@@ -63,7 +63,7 @@ function CompaniesMenu() {
 
       {open && (
       <div
-        className="nav-panel-enter absolute left-1/2 top-full z-10 w-56 -translate-x-1/2 pt-2"
+        className="nav-panel-enter absolute left-1/2 top-full z-10 w-64 -translate-x-1/2 pt-2"
         role="menu"
         aria-label="Group companies"
       >
@@ -73,11 +73,9 @@ function CompaniesMenu() {
                 key={branch.slug}
                 to={branch.path}
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-[#08376B] transition hover:bg-slate-50"
+                className="flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-[#08376B] transition hover:bg-slate-50"
               >
-                <span className="text-[#04B1C4]" aria-hidden="true">
-                  →
-                </span>
+                <Logo company={branch.logoKey} marksOnly />
                 {branch.name.replace('Brainiacs ', '')}
               </NavLink>
             ))}

@@ -3,27 +3,31 @@ import { heroSlides } from '../data/images'
 
 type HeroProps = {
   ariaLabel?: string
+  /** Optional slide override — e.g. the group home uses its own imagery. */
+  slides?: { src: string; alt: string }[]
 }
 
 export default function Hero({
   ariaLabel = 'Software engineering team at work',
+  slides,
 }: HeroProps) {
+  const activeSlides = slides ?? heroSlides
   const [activeSlide, setActiveSlide] = useState(0)
 
   useEffect(() => {
     const timer = window.setInterval(() => {
-      setActiveSlide((current) => (current + 1) % heroSlides.length)
+      setActiveSlide((current) => (current + 1) % activeSlides.length)
     }, 5500)
 
     return () => window.clearInterval(timer)
-  }, [])
+  }, [activeSlides.length])
 
   function showPrevious() {
-    setActiveSlide((current) => (current - 1 + heroSlides.length) % heroSlides.length)
+    setActiveSlide((current) => (current - 1 + activeSlides.length) % activeSlides.length)
   }
 
   function showNext() {
-    setActiveSlide((current) => (current + 1) % heroSlides.length)
+    setActiveSlide((current) => (current + 1) % activeSlides.length)
   }
 
   return (
@@ -33,12 +37,12 @@ export default function Hero({
       aria-roledescription="carousel"
       className="hero-carousel group"
     >
-      {heroSlides.map((slide, index) => (
+      {activeSlides.map((slide, index) => (
         <div
           key={slide.src}
           role="group"
           aria-roledescription="slide"
-          aria-label={`${index + 1} of ${heroSlides.length}`}
+          aria-label={`${index + 1} of ${activeSlides.length}`}
           aria-hidden={index !== activeSlide}
           className={`hero-carousel-slide transition-opacity duration-500 motion-reduce:transition-none ${index === activeSlide ? 'is-active' : ''}`}
         >
@@ -74,7 +78,7 @@ export default function Hero({
       </button>
 
       <div className="hero-carousel-dots" aria-label="Choose image">
-        {heroSlides.map((slide, index) => (
+        {activeSlides.map((slide, index) => (
           <button
             key={slide.src}
             type="button"
