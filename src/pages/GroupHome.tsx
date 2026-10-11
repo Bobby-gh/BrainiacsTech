@@ -378,7 +378,7 @@ export default function GroupHome() {
 
       {/* Selected client teams */}
       <ScrollReveal>
-        <section className="border-y border-slate-200 bg-[#f8fafc] py-14 sm:py-16" aria-labelledby="group-clients-title">
+        <section className="border-y border-slate-200 bg-[#08376B] py-14 sm:py-16" aria-labelledby="group-clients-title">
           <div className="container-x">
             <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-14">
               <div>
