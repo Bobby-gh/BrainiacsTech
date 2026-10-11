@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Hero from '../components/Hero'
 import GroupCard from '../components/GroupCard'
 import ScrollReveal from '../components/ScrollReveal'
+import Logo from '../components/Logo'
 import { branches, group } from '../data/group'
 import { companies } from '../data/companies'
 import { sectionImages } from '../data/images'
@@ -29,14 +30,20 @@ const groupStats = [
 const principles = [
   {
     title: 'Build',
+    logoKey: 'tech' as const,
+    to: '/tech',
     body: 'Brainiacs Tech takes products from whiteboard to production — web, mobile, cloud, and AI, owned end to end.',
   },
   {
     title: 'Work',
+    logoKey: 'space' as const,
+    to: '/space',
     body: 'Brainiacs Space gives independents and teams a welcoming home in Accra to focus, meet, and make things.',
   },
   {
     title: 'Grow',
+    logoKey: 'talents' as const,
+    to: '/talents',
     body: 'Brainiacs Talents connects ambitious companies with the technology professionals who move them forward.',
   },
 ]
@@ -58,61 +65,146 @@ export default function GroupHome() {
         slides={[...group.heroSlides]}
       />
 
-      {/* Group intro, directly under the hero */}
+      {/* Section beneath the hero: group intro + at-a-glance card */}
       <ScrollReveal>
-        <section className="border-b border-slate-200 bg-white" aria-labelledby="group-intro-title">
-          <div className="container-x py-14 sm:py-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#04B1C4]">
-              Brainiacs Group
-            </p>
-            <h2
-              id="group-intro-title"
-              className="mt-4 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#08376B] sm:text-5xl"
-            >
-              {group.tagline}
-            </h2>
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
-              {group.description}
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <a
-                href="#companies"
-                className="inline-flex items-center gap-2 rounded-md bg-[#04B1C4] px-5 py-3 text-sm font-semibold text-[#08376B] transition hover:bg-[#0399aa]"
-              >
-                Meet the companies <span aria-hidden="true">→</span>
-              </a>
-              <Link
-                to="/group"
-                className="inline-flex items-center gap-2 rounded-md border border-slate-300 px-5 py-3 text-sm font-semibold text-[#08376B] transition hover:border-[#08376B]"
-              >
-                About the group <span aria-hidden="true">↗</span>
-              </Link>
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
+        <section
+          className="relative overflow-hidden border-b border-slate-200 bg-white"
+          aria-labelledby="group-intro-title"
+        >
+          {/* brand accent stripe along the top edge */}
+          <div
+            className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#08376B] via-[#04B1C4] to-[#08376B]"
+            aria-hidden="true"
+          />
+          {/* soft decorative glow */}
+          <div
+            className="absolute -right-24 -top-24 size-72 rounded-full bg-[#04B1C4]/10 blur-3xl"
+            aria-hidden="true"
+          />
 
-      {/* Group stats */}
-      <ScrollReveal>
-        <section className="border-b border-slate-200 bg-white" aria-label="The group at a glance">
-          <div className="container-x grid grid-cols-2 gap-6 py-10 sm:py-12 lg:grid-cols-4">
-            {groupStats.map((stat) => (
-              <div key={stat.label}>
-                <p className="text-3xl font-semibold tracking-tight text-[#08376B] sm:text-4xl">
-                  {stat.value}
-                </p>
-                <p className="mt-1 max-w-44 text-xs leading-4 text-slate-500 sm:text-sm">
-                  {stat.label}
-                </p>
+          <div className="container-x grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+            {/* left: identity + headline */}
+            <div>
+              <span className="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-slate-50 py-1.5 pl-1.5 pr-4">
+                <Logo company="group" marksOnly />
+                <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#08376B]">
+                  Brainiacs Group · Est. {group.founded.slice(0, 4)}
+                </span>
+              </span>
+
+              <h2
+                id="group-intro-title"
+                className="mt-6 max-w-2xl text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-[#08376B] sm:text-5xl lg:text-[3.4rem]"
+              >
+                One group. Three ways to{' '}
+                <span className="bg-gradient-to-r from-[#04B1C4] to-[#08376B] bg-clip-text text-transparent">
+                  build, work, and grow.
+                </span>
+              </h2>
+
+              <p className="mt-5 max-w-xl text-sm leading-7 text-slate-600 sm:text-base sm:leading-8">
+                {group.description}
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="#companies"
+                  className="inline-flex items-center gap-2 rounded-md bg-[#04B1C4] px-5 py-3 text-sm font-semibold text-[#08376B] transition hover:bg-[#0399aa]"
+                >
+                  Meet the companies <span aria-hidden="true">→</span>
+                </a>
+                <Link
+                  to="/group"
+                  className="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-[#08376B] transition hover:border-[#08376B]"
+                >
+                  About the group <span aria-hidden="true">↗</span>
+                </Link>
               </div>
-            ))}
+
+              {/* branch quick-links with their logos */}
+              <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
+                {branches.map((branch) => (
+                  <li key={branch.slug}>
+                    <Link
+                      to={branch.path}
+                      className="group inline-flex items-center gap-2.5 text-sm font-semibold text-[#08376B] transition hover:text-[#04B1C4]"
+                    >
+                      <Logo company={branch.logoKey} marksOnly />
+                      {branch.name.replace('Brainiacs ', '')}
+                      <span
+                        className="text-[#04B1C4] transition-transform group-hover:translate-x-1"
+                        aria-hidden="true"
+                      >
+                        →
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* right: at-a-glance navy card */}
+            <aside
+              className="relative overflow-hidden rounded-2xl bg-[#08376B] p-6 text-white shadow-2xl shadow-[#08376B]/25 sm:p-8"
+              aria-label="The group at a glance"
+            >
+              <div
+                className="absolute -right-16 -top-16 size-52 rounded-full bg-[#04B1C4]/25 blur-2xl"
+                aria-hidden="true"
+              />
+              <div
+                className="absolute -bottom-20 -left-14 size-56 rounded-full bg-white/5 blur-2xl"
+                aria-hidden="true"
+              />
+
+              <div className="relative">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#04B1C4]">
+                  The group at a glance
+                </p>
+
+                <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-7">
+                  {groupStats.map((stat) => (
+                    <div key={stat.label}>
+                      <dt className="sr-only">{stat.label}</dt>
+                      <dd className="text-3xl font-semibold tracking-tight sm:text-4xl">
+                        {stat.value}
+                      </dd>
+                      <p className="mt-1.5 text-xs leading-4 text-blue-100/70">
+                        {stat.label}
+                      </p>
+                    </div>
+                  ))}
+                </dl>
+
+                <div className="mt-8 border-t border-white/15 pt-5">
+                  <p className="text-xs font-medium text-blue-100/70">
+                    One standard of craft across every company
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2.5">
+                    {branches.map((branch) => (
+                      <Link
+                        key={branch.slug}
+                        to={branch.path}
+                        className="rounded-full border border-white/25 px-4 py-1.5 text-xs font-semibold text-white transition hover:border-[#04B1C4] hover:bg-[#04B1C4] hover:text-[#08376B]"
+                      >
+                        {branch.name.replace('Brainiacs ', '')}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </aside>
           </div>
         </section>
       </ScrollReveal>
 
       {/* The three companies */}
       <ScrollReveal>
-        <section id="companies" className="scroll-mt-24" aria-labelledby="companies-title">
+        <section
+          id="companies"
+          className="scroll-mt-24 bg-[#f6f8fb]"
+          aria-labelledby="companies-title"
+        >
           <div className="container-x py-16 sm:py-20">
             <div className="mx-auto max-w-2xl text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#04B1C4]">
@@ -128,6 +220,10 @@ export default function GroupHome() {
                 Each Brainiacs company runs its own team, its own site, and its own
                 way of working — connected by one group and one standard.
               </p>
+              <div
+                className="mx-auto mt-6 h-1 w-16 rounded-full bg-gradient-to-r from-[#04B1C4] to-[#08376B]"
+                aria-hidden="true"
+              />
             </div>
 
             <div className="mt-12 grid gap-6 lg:grid-cols-3">
@@ -141,8 +237,12 @@ export default function GroupHome() {
 
       {/* Build / Work / Grow */}
       <ScrollReveal>
-        <section className="bg-[#08376B] text-white" aria-labelledby="principles-title">
-          <div className="container-x py-16 sm:py-20">
+        <section className="relative overflow-hidden bg-[#08376B] text-white" aria-labelledby="principles-title">
+          <div
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(4,177,196,0.18),transparent_55%)]"
+            aria-hidden="true"
+          />
+          <div className="container-x relative py-16 sm:py-20">
             <div className="mx-auto max-w-2xl text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#04B1C4]">
                 How the group fits together
@@ -155,18 +255,29 @@ export default function GroupHome() {
               </h2>
             </div>
             <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {principles.map((principle) => (
-                <div
+              {principles.map((principle, index) => (
+                <Link
                   key={principle.title}
-                  className="rounded-xl border border-white/15 bg-white/5 p-6"
+                  to={principle.to}
+                  className="group rounded-xl border border-white/15 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-[#04B1C4]/60 hover:bg-white/10"
                 >
-                  <p className="font-mono text-xs text-[#04B1C4]">
+                  <div className="flex items-center justify-between">
+                    <Logo company={principle.logoKey} marksOnly />
+                    <span className="font-mono text-xs text-[#04B1C4]">
+                      0{index + 1}
+                    </span>
+                  </div>
+                  <p className="mt-5 text-xl font-semibold tracking-tight">
                     {principle.title}
                   </p>
-                  <p className="mt-3 text-sm leading-6 text-white/80">
+                  <p className="mt-3 text-sm leading-6 text-white/75">
                     {principle.body}
                   </p>
-                </div>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#04B1C4] transition group-hover:gap-3">
+                    Visit {principle.title === 'Build' ? 'Tech' : principle.title === 'Work' ? 'Space' : 'Talents'}{' '}
+                    <span aria-hidden="true">→</span>
+                  </span>
+                </Link>
               ))}
             </div>
           </div>
@@ -281,7 +392,7 @@ export default function GroupHome() {
               </div>
               <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3" aria-label="Selected Brainiacs Tech clients">
                 {companies.slice(0, 6).map((company) => (
-                  <li key={company.name} className="flex min-h-20 items-center gap-3 rounded-lg border border-slate-200 bg-white px-4 py-3 shadow-sm shadow-slate-900/[0.02]">
+                  <li key={company.name} className="flex min-h-20 items-center gap-3 rounded-lg border border-slate-200 bg-white px-4 py-3 shadow-sm shadow-slate-900/[0.02] transition hover:-translate-y-0.5 hover:border-[#04B1C4]/40 hover:shadow-md">
                     <span className="grid size-9 shrink-0 place-items-center rounded-md bg-[#08376B]/5 text-[11px] font-bold tracking-wide text-[#08376B]" aria-hidden="true">
                       {company.monogram}
                     </span>
