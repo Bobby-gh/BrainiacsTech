@@ -383,10 +383,10 @@ export default function GroupHome() {
             <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-14">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white">People we’ve worked with</p>
-                <h2 id="group-clients-title" className="mt-3 text-2xl font-semibold tracking-[-0.035em] text-[#08376B] sm:text-3xl">
+                <h2 id="group-clients-title" className="mt-3 text-2xl font-semibold tracking-[-0.035em] text-white sm:text-3xl">
                   Trusted by teams solving real problems.
                 </h2>
-                <p className="mt-3 max-w-lg text-sm leading-6 text-white-600">
+                <p className="mt-3 max-w-lg text-sm leading-6 text-white">
                   A few of the teams Brainiacs Tech has partnered with across fintech, healthcare, retail, logistics, and more.
                 </p>
               </div>
