@@ -72,16 +72,16 @@ export const group = {
   // Group hero carousel — used on the group home, distinct from Tech.
   heroSlides: [
     {
+      src: unsplash('photo-1781914476939-91a41b914899'),
+      alt: 'Two colleagues working side by side on laptops in daylight',
+    },
+    {
       src: unsplash('photo-1766066014773-0074bf4911de'),
       alt: 'Bright collaborative workspace with a shared table and laptops',
     },
     {
       src: unsplash('photo-1632910605645-7a2e40713db1'),
       alt: 'People meeting together at a bright coworking table',
-    },
-    {
-      src: unsplash('photo-1781914476939-91a41b914899'),
-      alt: 'Two colleagues working side by side on laptops in daylight',
     },
   ] as { src: string; alt: string }[],
 }
