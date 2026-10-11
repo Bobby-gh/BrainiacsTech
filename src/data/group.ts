@@ -76,11 +76,11 @@ export const group = {
       alt: 'Two colleagues working side by side on laptops in daylight',
     },
     {
-      src: unsplash('photo-1766066014773-0074bf4911de'),
+      src: unsplash('photo-1544256718-3bcf237f3974'),
       alt: 'Bright collaborative workspace with a shared table and laptops',
     },
     {
-      src: unsplash('photo-1632910605645-7a2e40713db1'),
+      src: unsplash('photo-1782898669223-ab17b600d486'),
       alt: 'People meeting together at a bright coworking table',
     },
   ] as { src: string; alt: string }[],
