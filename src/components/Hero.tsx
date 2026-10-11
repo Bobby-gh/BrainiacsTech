@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react'
 import { heroSlides } from '../data/images'
 
-export default function Hero() {
+type HeroProps = {
+  ariaLabel?: string
+}
+
+export default function Hero({
+  ariaLabel = 'Software engineering team at work',
+}: HeroProps) {
   const [activeSlide, setActiveSlide] = useState(0)
 
   useEffect(() => {
@@ -23,7 +29,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      aria-label="Software engineering team at work"
+      aria-label={ariaLabel}
       aria-roledescription="carousel"
       className="hero-carousel group"
     >

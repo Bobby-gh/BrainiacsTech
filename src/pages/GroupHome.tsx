@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import PageHeader from '../components/PageHeader'
+import Hero from '../components/Hero'
 import GroupCard from '../components/GroupCard'
 import ScrollReveal from '../components/ScrollReveal'
 import CTA from '../components/CTA'
@@ -30,26 +30,42 @@ const principles = [
 export default function GroupHome() {
   return (
     <>
-      <PageHeader
-        eyebrow="Brainiacs Group"
-        title={group.tagline}
-        description={group.description}
-      >
-        <div className="mt-2 flex flex-wrap gap-3">
-          <a
-            href="#companies"
-            className="inline-flex items-center gap-2 rounded-md bg-[#04B1C4] px-5 py-3 text-sm font-semibold text-[#08376B] transition hover:bg-[#0399aa]"
-          >
-            Meet the companies <span aria-hidden="true">→</span>
-          </a>
-          <Link
-            to="/group"
-            className="inline-flex items-center gap-2 rounded-md border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:border-[#04B1C4] hover:text-[#04B1C4]"
-          >
-            About the group <span aria-hidden="true">↗</span>
-          </Link>
-        </div>
-      </PageHeader>
+      {/* Same carousel hero as /tech */}
+      <Hero ariaLabel="The Brainiacs Group companies at work" />
+
+      {/* Group intro, directly under the hero */}
+      <ScrollReveal>
+        <section className="border-b border-slate-200 bg-white" aria-labelledby="group-intro-title">
+          <div className="container-x py-14 sm:py-16">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#04B1C4]">
+              Brainiacs Group
+            </p>
+            <h2
+              id="group-intro-title"
+              className="mt-4 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#08376B] sm:text-5xl"
+            >
+              {group.tagline}
+            </h2>
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+              {group.description}
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a
+                href="#companies"
+                className="inline-flex items-center gap-2 rounded-md bg-[#04B1C4] px-5 py-3 text-sm font-semibold text-[#08376B] transition hover:bg-[#0399aa]"
+              >
+                Meet the companies <span aria-hidden="true">→</span>
+              </a>
+              <Link
+                to="/group"
+                className="inline-flex items-center gap-2 rounded-md border border-slate-300 px-5 py-3 text-sm font-semibold text-[#08376B] transition hover:border-[#08376B]"
+              >
+                About the group <span aria-hidden="true">↗</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* Group stats */}
       <ScrollReveal>

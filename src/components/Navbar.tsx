@@ -4,7 +4,6 @@ import Logo from './Logo'
 import { branches } from '../data/group'
 
 const links = [
-  { label: 'Group companies', to: '/group' },
   { label: 'Projects', to: '/projects' },
   { label: 'Services', to: '/services' },
   { label: 'About', to: '/about' },
@@ -63,39 +62,25 @@ function CompaniesMenu() {
       </button>
 
       {open && (
-        <div
-          className="absolute left-1/2 top-full z-10 w-72 -translate-x-1/2 pt-2"
-          role="menu"
-          aria-label="Group companies"
-        >
-          <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl shadow-slate-950/10">
+      <div
+        className="nav-panel-enter absolute left-1/2 top-full z-10 w-56 -translate-x-1/2 pt-2"
+        role="menu"
+        aria-label="Group companies"
+      >
+          <div className="overflow-hidden rounded-xl border border-slate-200 bg-white py-1.5 shadow-xl shadow-slate-950/10">
             {branches.map((branch) => (
               <NavLink
                 key={branch.slug}
                 to={branch.path}
                 onClick={() => setOpen(false)}
-                className="flex items-start gap-3 border-b border-slate-100 px-4 py-3.5 last:border-0 hover:bg-slate-50"
+                className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-[#08376B] transition hover:bg-slate-50"
               >
-                <span className="mt-0.5 shrink-0">
-                  <Logo company={branch.logoKey} variant="dark" />
+                <span className="text-[#04B1C4]" aria-hidden="true">
+                  →
                 </span>
-                <span className="min-w-0">
-                  <span className="block text-sm font-semibold text-[#08376B]">
-                    {branch.name.replace('Brainiacs ', '')}
-                  </span>
-                  <span className="mt-0.5 block text-xs leading-4 text-slate-500">
-                    {branch.tagline}
-                  </span>
-                </span>
+                {branch.name.replace('Brainiacs ', '')}
               </NavLink>
             ))}
-            <NavLink
-              to="/group"
-              onClick={() => setOpen(false)}
-              className="block bg-slate-50 px-4 py-3 text-center text-xs font-semibold text-[#04B1C4] hover:bg-slate-100"
-            >
-              About Brainiacs Group →
-            </NavLink>
           </div>
         </div>
       )}
@@ -195,22 +180,14 @@ export default function Navbar() {
                 to={branch.path}
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
-                  `flex items-center gap-3 rounded-md px-3 py-3 text-sm font-medium transition ${
+                  `rounded-md px-3 py-3 text-sm font-medium transition ${
                     isActive
                       ? 'bg-[#08376B] text-white'
                       : 'text-slate-700 hover:bg-slate-100 hover:text-[#08376B]'
                   }`
                 }
               >
-                <span className="shrink-0">
-                  <Logo company={branch.logoKey} variant="light" />
-                </span>
-                <span>
-                  {branch.name.replace('Brainiacs ', '')}
-                  <span className="block text-[11px] font-normal text-slate-500">
-                    {branch.tagline}
-                  </span>
-                </span>
+                {branch.name.replace('Brainiacs ', '')}
               </NavLink>
             ))}
 
